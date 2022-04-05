@@ -28,7 +28,7 @@ module "vpc" {
 module "secretParameter" {
      source         = "./modules/secretParameter"
 
-     sercret_name = format("%s/%s/rds31", var.project_name, var.environment_name)
+     sercret_name = format("%s/%s/%s", var.project_name, var.environment_name, var.secretmanager_secret_name)
      aws_service_name_allow = var.secretmanager_rds_aws_service_allow
      environment_name = var.environment_name
 

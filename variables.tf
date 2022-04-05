@@ -22,6 +22,11 @@ variable "network_cidr_block" {
 # secret manager module  #
 ##########################
 
+variable "secretmanager_secret_name" {
+  description = "Secret manager name"
+  type        = string
+}
+
 variable "secretmanager_rds_aws_service_allow" {
   description = "A list of aws service allow to retrieve the secret value"
   type        = list(string)
