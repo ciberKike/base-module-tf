@@ -27,7 +27,7 @@ and  network_cidr_block, this 4 key: `public1` `public2` `private1` `private2`. 
 ## Example
 ```hcl
 module "base" {
-  source = "git@github.com:ciberKike/base-module-tf.git?ref=v0.1.1"
+  source = "git::https://github.com/ciberKike/base-module-tf.git?ref=v0.1.2"
   environment_name = "test"
  
   network_vpc_cdir = "10.30.0.0/16"
