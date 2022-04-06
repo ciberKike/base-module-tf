@@ -1,6 +1,6 @@
-## This a module to create a secure RDS instance.
+## This module is for creating a secure RDS instance.
 
-The user that will use this module must have a similar policy associate as below.
+It is necessary to have a similar policy associated to the user role in order to use the module, as you can see in the example below.
 ```
 {
     "Version": "2012-10-17",
@@ -22,12 +22,12 @@ The user that will use this module must have a similar policy associate as below
 ```
 
 **IMPORTANT:** This module works with 4 subnets, 2 public and 2 private, it is necessary to set for this variables network_availability_zone_name
-and  network_cidr_block, this 4 key: `public1` `public2` `private1` `private2`. At least you must set ` rds.amazonaws.com `. As you can see in the example below.
+and  network_cidr_block, this 4 key: `public1` `public2` `private1` `private2`. At least you must set for secretmanager_rds_aws_service_allow variable, this value ` rds.amazonaws.com `. As you can see in the example below.
                 
 ## Example
 ```hcl
 module "base" {
-  source = "git::https://github.com/ciberKike/base-module-tf.git?ref=v0.1.2"
+  source = "git::https://github.com/ciberKike/base-module-tf.git?ref=v0.1.3"
   environment_name = "test"
  
   network_vpc_cdir = "10.30.0.0/16"
@@ -95,4 +95,4 @@ module "base" {
 
 If you want to get the rds instance password, you should execute this command
 
-``` aws secretsmanager get-secret-value --secret-id gartner/test/{secretmanager_secret_name} --profile {your profile name} ```
+``` aws secretsmanager get-secret-value --secret-id {project_name}/{environment_name}/{secretmanager_secret_name} --profile {your profile name} ```
